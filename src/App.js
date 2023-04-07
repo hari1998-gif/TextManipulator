@@ -1,6 +1,4 @@
-// import logo from "./logo.svg";
 import "./App.css";
-// import About from "./AppComps/About";
 import Navbar from "./AppComps/Navbar";
 import TextArea from "./AppComps/TextArea";
 import React, { useState } from "react";
@@ -27,14 +25,14 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#05042d";
       showAlert("Dark mode is enabled", "success");
+      document.title = "Text Manipular-Dark mode"
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode is enabled", "success");
+      document.title = "Text Manipular-Light mode"
     }
   };
-
-
 
   return (
     <>
@@ -46,20 +44,23 @@ function App() {
       />
       <Alert alert={alert} />
       <div className="container">
-
         <Routes>
-          <Route path="/about" element={<About mode={mode}/>} />
-          <Route path="/" element={<TextArea
-              title="Text Editor" //props
-              textPlaceholder="Enter your text here" //props
-              convBtnToUpper="Convert to Uppercase" //props
-              convBtnToLower="Convert to Lowercase" //props
-              mode={mode}
-              showAlert={showAlert}
-            />} />
+          <Route path="/about" element={<About mode={mode} />}/>
+          
+          <Route
+            path="/"
+            element={
+              <TextArea
+                title="Text Editor" //props
+                textPlaceholder="Enter your text here" //props
+                convBtnToUpper="Convert to Uppercase" //props
+                convBtnToLower="Convert to Lowercase" //props
+                mode={mode}
+                showAlert={showAlert}
+              />
+            }
+          />
         </Routes>
-
-        {/* <About /> */}
       </div>
     </>
   );

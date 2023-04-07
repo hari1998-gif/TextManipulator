@@ -52,15 +52,12 @@ function TextArea(props) {
     // var spaceHandle = document.getElementById("editArea")
     // spaceHandle = setText(text.replace(/\s+/g, " "))
   };
-//   const mystyle = {
-//     marginTop: "4.5rem",
-//     marginBottom: "1rem",
-//   };
+
   return (
     <>
       <div style={{ color: props.mode === "dark" ? "white" : "#05042d" }}>
         <h1 className="m-2">{props.title}</h1>
-        <div >
+        <div>
           <textarea
             className="form-control mb-3"
             id="editArea"

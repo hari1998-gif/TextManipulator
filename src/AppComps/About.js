@@ -1,42 +1,21 @@
-import React, { useState } from "react";
-
-// const[] = useState()
+import React from "react";
 
 export default function About(props) {
-  let initialPageStyle = {
-    color: "black",
-    backgroundColor: "white",
-  };
-
-  let initialBtnStyle = "Enter Dark Mode";
-
-  const [myStyle, setMystyle] = useState(() => initialPageStyle);
-
-  const [myBtnStyle, setBtnStyle] = useState(() => initialBtnStyle);
-
-  const toggleLightDarkMode = () => {
-    if (myStyle.color === "black") {
-      setMystyle({
-        color: "white",
-        backgroundColor: "black",
-      });
-
-      setBtnStyle("Enter Dark Mode");
-    } else {
-      setMystyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-
-      setBtnStyle("Enter Light Mode");
-    }
-  };
-
+    document.title = "Text Manipulator- About";
   return (
-    <div className="container  rounded-2" style={myStyle}>
+    <div
+      className="container  rounded-2"
+      style={{ color: props.mode === "dark" ? "White" : "black" }}
+    >
       <h1 className="m-3">About App</h1>
       <div className="accordion m-3" id="accordionExample">
-        <div className="accordion-item">
+        <div
+          className="accordion-item"
+          style={{
+            backgroundColor: props.mode === "dark" ? "black" : "white",
+            color: props.mode === "dark" ? "white" : "#05042d",
+          }}
+        >
           <h2 className="accordion-header">
             <button
               className="accordion-button"
@@ -45,7 +24,6 @@ export default function About(props) {
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
-              style={myStyle}
             >
               React JS
             </button>
@@ -54,7 +32,6 @@ export default function About(props) {
             id="collapseOne"
             className="accordion-collapse collapse show"
             data-bs-parent="#accordionExample"
-            style={myStyle}
           >
             <div className="accordion-body">
               <strong>
@@ -103,7 +80,13 @@ export default function About(props) {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div
+          className="accordion-item"
+          style={{
+            backgroundColor: props.mode === "dark" ? "black" : "white",
+            color: props.mode === "dark" ? "white" : "#05042d",
+          }}
+        >
           <h2 className="accordion-header">
             <button
               className="accordion-button collapsed"
@@ -112,7 +95,6 @@ export default function About(props) {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
-              style={myStyle}
             >
               JavaScript
             </button>
@@ -121,7 +103,6 @@ export default function About(props) {
             id="collapseTwo"
             className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
-            style={myStyle}
           >
             <div className="accordion-body">
               <strong>
@@ -148,7 +129,13 @@ export default function About(props) {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div
+          className="accordion-item"
+          style={{
+            backgroundColor: props.mode === "dark" ? "black" : "white",
+            color: props.mode === "dark" ? "white" : "#05042d",
+          }}
+        >
           <h2 className="accordion-header">
             <button
               className="accordion-button collapsed"
@@ -157,7 +144,6 @@ export default function About(props) {
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
-              style={myStyle}
             >
               About Text manipulator
             </button>
@@ -166,43 +152,32 @@ export default function About(props) {
             id="collapseThree"
             className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
-            style={myStyle}
           >
             <div className="accordion-body">
-              <strong>A text manipulator is a software tool that allows users to perform
-              various operations on text.</strong>
-              
-              <br /><br />
-              
-               Text manipulators can be used to edit,
-              transform, or analyze text in a variety of ways. Some common
-              operations that text manipulators can perform include formatting
-              text, searching and replacing text, extracting specific pieces of
-              information from text, sorting and filtering text, and generating
-              new text based on existing text. Text manipulators are useful for
-              a wide range of applications, including data analysis, content
-              management, and text processing. They can be standalone software
-              tools or integrated into other software applications, such as text
-              editors or programming environments.
-              
-              <br/><br/>
-                Some popular text
-              manipulators include regular expression engines, scripting
-              languages like Python or Perl, and specialized text manipulation
-              software such as sed or awk.
+              <strong>
+                A text manipulator is a software tool that allows users to
+                perform various operations on text.
+              </strong>
+              <br />
+              <br />
+              Text manipulators can be used to edit, transform, or analyze text
+              in a variety of ways. Some common operations that text
+              manipulators can perform include formatting text, searching and
+              replacing text, extracting specific pieces of information from
+              text, sorting and filtering text, and generating new text based on
+              existing text. Text manipulators are useful for a wide range of
+              applications, including data analysis, content management, and
+              text processing. They can be standalone software tools or
+              integrated into other software applications, such as text editors
+              or programming environments.
+              <br />
+              <br />
+              Some popular text manipulators include regular expression engines,
+              scripting languages like Python or Perl, and specialized text
+              manipulation software such as sed or awk.
             </div>
           </div>
         </div>
-      </div>
-      <div className="container">
-        <button
-          type="button"
-          onClick={toggleLightDarkMode}
-          className="btn btn-primary m-3"
-          style={myStyle}
-        >
-          {myBtnStyle}
-        </button>
       </div>
     </div>
   );
