@@ -75,7 +75,7 @@ function TextArea(props) {
           ></textarea>
         </div>
         <div className="m-2">
-          <button className="btn btn-success mx-3" onClick={handleUpperClick}>
+          <button className="btn btn-success m-3" onClick={handleUpperClick}>
             {props.convBtnToUpper}
           </button>
           <button className="btn btn-primary" onClick={handleLowerClick}>
