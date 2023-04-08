@@ -2,19 +2,26 @@ import React from "react";
 
 export default function About(props) {
     document.title = "Text Manipulator- About";
+
+    let myStyle = {
+      backgroundColor: props.mode === "dark" ? "black" : "white",
+      color: props.mode === "dark" ? "white" : "#05042d",
+    }
+    let myStyle2 = {backgroundColor: props.mode === "dark" ? "rgb(15 14 62)" : "white",
+    color: props.mode === "dark" ? "white" : "#05042d",
+}
   return (
     <div
       className="container  rounded-2"
       style={{ color: props.mode === "dark" ? "White" : "black" }}
     >
       <h1 className="m-3">About App</h1>
+      <p className="m-3">Let us know the few things used in building of this web application. Click on each below to know about how those helped in real life:</p>
+      <br />
       <div className="accordion m-3" id="accordionExample">
         <div
           className="accordion-item"
-          style={{
-            backgroundColor: props.mode === "dark" ? "black" : "white",
-            color: props.mode === "dark" ? "white" : "#05042d",
-          }}
+          style={myStyle}
         >
           <h2 className="accordion-header">
             <button
@@ -24,6 +31,7 @@ export default function About(props) {
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
+              style={myStyle2}
             >
               React JS
             </button>
@@ -82,10 +90,7 @@ export default function About(props) {
         </div>
         <div
           className="accordion-item"
-          style={{
-            backgroundColor: props.mode === "dark" ? "black" : "white",
-            color: props.mode === "dark" ? "white" : "#05042d",
-          }}
+          style={myStyle}
         >
           <h2 className="accordion-header">
             <button
@@ -95,6 +100,7 @@ export default function About(props) {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
+              style={myStyle2}
             >
               JavaScript
             </button>
@@ -131,10 +137,7 @@ export default function About(props) {
         </div>
         <div
           className="accordion-item"
-          style={{
-            backgroundColor: props.mode === "dark" ? "black" : "white",
-            color: props.mode === "dark" ? "white" : "#05042d",
-          }}
+          style={myStyle}
         >
           <h2 className="accordion-header">
             <button
@@ -144,6 +147,7 @@ export default function About(props) {
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
+              style={myStyle2}
             >
               About Text manipulator
             </button>

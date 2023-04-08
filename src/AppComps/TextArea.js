@@ -9,6 +9,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs; //For accessing PDF fonts from pdfFontrs mod
 function initialValue() {
   return "";
 }
+
 //Using the useState hook for text Area:
 function TextArea(props) {
   const [text, setText] = useState(() => initialValue());
@@ -16,18 +17,21 @@ function TextArea(props) {
   const handleChange = (event) => {
     setText(event.target.value);
   };
+
   //Convert to Uppercase:
   const handleUpperClick = () => {
     setText(text.toUpperCase());
     console.log(text);
     props.showAlert("Text converted to upper case", "Hurray!");
   };
+
   //Convert to Lowercase:
   const handleLowerClick = () => {
     setText(text.toLowerCase());
     console.log(text);
     props.showAlert("Text converted to lower case", "Awesome!");
   };
+
   // Extract to PDF:
   const handlePDFExtract = () => {
     const pdfDoc = {
@@ -36,6 +40,7 @@ function TextArea(props) {
     pdfMake.createPdf(pdfDoc).download("text.pdf");
     props.showAlert("PDF extracted", "HooYah!");
   };
+
   //Copy the text:
   const handleCopy = () => {
     var text = document.getElementById("editArea");
@@ -43,14 +48,12 @@ function TextArea(props) {
     navigator.clipboard.writeText(text.value);
     props.showAlert("Text copied to clipboard", "success");
   };
+
   // Extra space handler:
   const handleExtraSpace = () => {
     var spaceHandle = text.split(/[ ]+/);
     setText(spaceHandle.join(" "));
     props.showAlert("Extra spaces has been handled", "Booyah!");
-
-    // var spaceHandle = document.getElementById("editArea")
-    // spaceHandle = setText(text.replace(/\s+/g, " "))
   };
 
   return (
@@ -71,31 +74,31 @@ function TextArea(props) {
             }}
           ></textarea>
         </div>
-        <div className="m-2">
-          <button className="btn btn-success m-3" onClick={handleUpperClick}>
+        <div>
+          <button className="btn btn-success m-2" disabled = {text.length === 0} onClick={handleUpperClick}>
             {props.convBtnToUpper}
           </button>
-          <button className="btn btn-primary" onClick={handleLowerClick}>
+          <button className="btn btn-primary m-2" disabled = {text.length === 0} onClick={handleLowerClick}>
             {props.convBtnToLower}
           </button>
-          <button className="btn btn-secondary mx-3" onClick={handlePDFExtract}>
+          <button className="btn btn-secondary m-2" disabled = {text.length === 0} onClick={handlePDFExtract}>
             Extract to PDF
           </button>
-          <button className="btn btn-warning" onClick={handleCopy}>
-            Copy Data
-          </button>
-          <button className="btn btn-info m-3" onClick={handleExtraSpace}>
+          <button className="btn btn-info m-2" disabled = {text.length === 0} onClick={handleExtraSpace}>
             Remove Extra Spaces
+          </button>
+          <button className="btn btn-warning m-2" disabled = {text.length === 0} onClick={handleCopy}>
+            Copy Data
           </button>
         </div>
 
         <div className="container my-3">
           <h2>Text Area Summary</h2>
           <p>
-            {text.trim().split(" ").length - 1} words and {text.length}{" "}
-            characters
+            {text.trim().split(" ").filter((element)=> {return element.length!==0}).length} words and {text.length}{" "}
+             characters
           </p>
-          <p>Time to read: {0.008 * text.length} minutes</p>
+          <p>Time to read: {0.008 * text.split(" ").filter((element)=> {return element.length!==0}).length} minutes</p>
           <h3>Preview</h3>
           <p className="border border-primary lh-base rounded-3 text-break p-3 fst-italic">
             {text.length > 0

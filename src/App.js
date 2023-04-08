@@ -25,12 +25,10 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#05042d";
       showAlert("Dark mode is enabled", "success");
-      document.title = "Text Manipular-Dark mode"
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode is enabled", "success");
-      document.title = "Text Manipular-Light mode"
     }
   };
 
