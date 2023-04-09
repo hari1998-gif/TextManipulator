@@ -95,10 +95,10 @@ function TextArea(props) {
         <div className="container my-3">
           <h2>Text Area Summary</h2>
           <p>
-            {text.trim().split(" ").filter((element)=> {return element.length!==0}).length} words and {text.length}{" "}
+            {text.trim().split(/\s+/).filter((element)=> {return element.length!==0}).length} words and {text.length}{" "}
              characters
           </p>
-          <p>Time to read: {0.008 * text.split(" ").filter((element)=> {return element.length!==0}).length} minutes</p>
+          <p>Time to read: {0.008 * text.split(/\s+/).filter((element)=> {return element.length!==0}).length} minutes</p>
           <h3>Preview</h3>
           <p className="border border-primary lh-base rounded-3 text-break p-3 fst-italic">
             {text.length > 0
