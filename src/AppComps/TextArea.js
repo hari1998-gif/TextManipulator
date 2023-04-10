@@ -21,14 +21,12 @@ function TextArea(props) {
   //Convert to Uppercase:
   const handleUpperClick = () => {
     setText(text.toUpperCase());
-    console.log(text);
     props.showAlert("Text converted to upper case", "Hurray!");
   };
 
   //Convert to Lowercase:
   const handleLowerClick = () => {
     setText(text.toLowerCase());
-    console.log(text);
     props.showAlert("Text converted to lower case", "Awesome!");
   };
 
