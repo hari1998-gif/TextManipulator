@@ -33,7 +33,7 @@ function Navbar(props) {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link active" style={{cursor:pointer}} aria-current="page" to="/about">
+                <Link className="nav-link active" aria-current="page" to="/about">
                   {props.about}
                 </Link>
               </li>
